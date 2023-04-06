@@ -3,7 +3,6 @@ package com.yawlle.kittyrecipes.ui.presentation
 
 import android.os.Bundle
 import androidx.annotation.IdRes
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
