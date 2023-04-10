@@ -39,7 +39,7 @@ fun HomeScreen(
                 Modifier
                     .padding(it)
                     .background(color = PrimaryColor)
-                    .fillMaxSize()) {
+                    .fillMaxHeight(2f)) {
                 TitleIcon(
                     title = "Seja Bem Vindo!",
                     painter = painterResource(id = R.drawable.logo_splash)
@@ -53,7 +53,6 @@ fun HomeScreen(
                     items = listDishTypes,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .fillMaxHeight(0.3f)
                         .padding(16.dp)
                 )
             }
