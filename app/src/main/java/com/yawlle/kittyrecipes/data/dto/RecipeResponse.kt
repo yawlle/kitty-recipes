@@ -1,3 +1,8 @@
 package com.yawlle.kittyrecipes.data.dto
 
-class RecipeResponse : ArrayList<RecipeResponseItem>()
+import com.google.gson.annotations.SerializedName
+
+data class Recipe(
+    @SerializedName("recipes")
+    val recipes: List<RecipeResponseItem>
+)

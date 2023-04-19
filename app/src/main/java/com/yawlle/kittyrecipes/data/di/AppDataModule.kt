@@ -26,7 +26,7 @@ object AppDataModule {
             .addInterceptor { chain ->
                 val originalRequest = chain.request()
                 val requestWithApiKey = originalRequest.newBuilder()
-                    .header("x-api-key", System.getProperty("API_KEY")?:"")
+                    .header("x-api-key", "e09653f8654747a5b321f119cce45d06")
                     .build()
                 chain.proceed(requestWithApiKey)
             }
@@ -40,14 +40,4 @@ object AppDataModule {
             .build()
             .create(RecipeApi::class.java)
     }
-
-
-    @Provides
-    @ViewModelScoped
-    fun provideRecipeRepository(
-        api: RecipeApi
-    ): RecipeRepository {
-        return RecipeRepositoryImpl(api)
-    }
-
 }

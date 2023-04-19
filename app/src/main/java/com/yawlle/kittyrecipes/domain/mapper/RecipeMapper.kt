@@ -1,7 +1,7 @@
 package com.yawlle.kittyrecipes.domain.mapper
 
 import com.yawlle.kittyrecipes.data.dto.RecipeResponseItem
-import com.yawlle.kittyrecipes.domain.model.DishTypes
+import com.yawlle.kittyrecipes.domain.model.DishType
 import com.yawlle.kittyrecipes.domain.model.Recipe
 
 fun RecipeResponseItem.toRecipe() =
@@ -10,17 +10,17 @@ fun RecipeResponseItem.toRecipe() =
         title = title,
         cheap = cheap,
         cookingMinutes = cookingMinutes,
-        dishTypes = getDishType(dishTypes),
-        preparationMinutes = preparationMinutes,
+        dishTypes = getDishType(dishTypes ?: listOf()),
+        preparationMinutes = preparationMinutes ?: 0,
         vegan = vegan,
         vegetarian = vegetarian,
         veryHealthy = veryHealthy,
         veryPopular = veryPopular,
         image = image,
-        instructions = instructions,
+        instructions = instructions ?: "",
     )
 
-fun getDishType(dishTypes: List<String>): List<DishTypes> {
+fun getDishType(dishTypes: List<String>): List<DishType> {
     return dishTypes.map {
         val name = when (it) {
             "main course" -> "Prato Principal"
@@ -37,6 +37,6 @@ fun getDishType(dishTypes: List<String>): List<DishTypes> {
             "snack" -> "Lanche"
             else -> it
         }
-        DishTypes(name)
+        DishType(name)
     }
 }

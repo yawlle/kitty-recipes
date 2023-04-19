@@ -8,8 +8,8 @@ class GetRandomRecipeUseCase @Inject constructor(
     private val repository: RecipeRepository
 ) {
 
-    suspend fun invoke(number: Int, tags: String) =
-        repository.getRandomRecipe(number, tags).getOrThrow()
+    suspend operator fun invoke(number: Int, tags: String) =
+        repository.getRandomRecipe(number, tags).getOrThrow().recipes
             .map {
                 it.toRecipe()
             }
