@@ -8,7 +8,7 @@ data class Recipe(
     val cheap: Boolean,
     val cookingMinutes: Int,
     val image: String,
-    val dishTypes: List<DishType>,
+    val recipeTypes: List<RecipeType>,
     val instructions: String,
     val preparationMinutes: Int,
     val vegan: Boolean,
