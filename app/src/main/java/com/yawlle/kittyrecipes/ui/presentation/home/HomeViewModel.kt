@@ -3,7 +3,7 @@ package com.yawlle.kittyrecipes.ui.presentation.home
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.yawlle.kittyrecipes.domain.model.listDishTypes
+import com.yawlle.kittyrecipes.domain.model.listRecipeTypes
 import com.yawlle.kittyrecipes.domain.use_cases.GetRandomRecipeUseCase
 import com.yawlle.kittyrecipes.ui.presentation.Constants.COUNT_CAROUSEL
 import com.yawlle.kittyrecipes.ui.presentation.getRandomDishTypes
@@ -23,7 +23,7 @@ class HomeViewModel @Inject constructor(
     val recipeState: StateFlow<HomeState> = _recipeState.asStateFlow()
 
     init {
-        getRandomRecipe(getRandomDishTypes(listDishTypes).APIname?:"")
+        getRandomRecipe(getRandomDishTypes(listRecipeTypes).APIname)
     }
 
     private fun getRandomRecipe(dishType: String) {
