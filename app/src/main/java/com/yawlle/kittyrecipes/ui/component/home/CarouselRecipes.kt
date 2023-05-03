@@ -28,7 +28,7 @@ import com.yawlle.kittyrecipes.ui.theme.PrimaryColor
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalFoundationApi::class)
 @Composable
 fun CarouselRecipes(
-    navigateToRecipeTypeScreen: (String) -> Unit,
+    navigateToRecipeTypeScreen: (RecipeType) -> Unit,
     items: List<RecipeType>,
     modifier: Modifier,
 ) {
@@ -53,7 +53,7 @@ fun CarouselRecipes(
                     defaultElevation = 10.dp
                 ),
                 onClick = {
-                    navigateToRecipeTypeScreen(items[page].APIname)
+                    navigateToRecipeTypeScreen(items[page])
                 }
 
             ) {

@@ -12,8 +12,9 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.yawlle.kittyrecipes.R
 import com.yawlle.kittyrecipes.domain.model.Recipe
+import com.yawlle.kittyrecipes.domain.model.RecipeType
 import com.yawlle.kittyrecipes.domain.model.listRecipeTypes
-import com.yawlle.kittyrecipes.ui.component.TopAppBarCompose
+import com.yawlle.kittyrecipes.ui.component.home.TopAppBarHome
 import com.yawlle.kittyrecipes.ui.component.home.CarouselRecipes
 import com.yawlle.kittyrecipes.ui.component.home.HorizontalCards
 import com.yawlle.kittyrecipes.ui.component.home.TitleIcon
@@ -23,7 +24,7 @@ import com.yawlle.kittyrecipes.ui.theme.TertiaryColor
 
 @Composable
 fun HomeScreen(
-    navigateToRecipeTypeScreen: (String) -> Unit,
+    navigateToRecipeTypeScreen: (RecipeType) -> Unit,
     vm: HomeViewModel = hiltViewModel()
 ) {
 
@@ -36,11 +37,11 @@ fun HomeScreen(
 @OptIn(ExperimentalMaterial3Api::class)
 private fun HomeScreen(
     list: List<Recipe>,
-    navigateToRecipeTypeScreen: (String) -> Unit
+    navigateToRecipeTypeScreen: (RecipeType) -> Unit
 ) {
     Scaffold(
         topBar = {
-            TopAppBarCompose()
+            TopAppBarHome()
         },
         content = {
             Column(
