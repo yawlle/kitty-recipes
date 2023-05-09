@@ -2,9 +2,6 @@ package com.yawlle.kittyrecipes.ui.navigation
 
 import android.net.Uri
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -13,10 +10,10 @@ import androidx.navigation.navArgument
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.yawlle.kittyrecipes.domain.model.RecipeType
-import com.yawlle.kittyrecipes.ui.presentation.home.HomeScreen
 import com.yawlle.kittyrecipes.ui.presentation.SplashHomeScreen
-import com.yawlle.kittyrecipes.ui.presentation.mealtype.RecipeScreen
-import com.yawlle.kittyrecipes.ui.presentation.mealtype.RecipeTypeScreen
+import com.yawlle.kittyrecipes.ui.presentation.home.HomeScreen
+import com.yawlle.kittyrecipes.ui.presentation.recipetype.RecipeScreen
+import com.yawlle.kittyrecipes.ui.presentation.recipetype.RecipeTypeScreen
 
 @Composable
 fun KittyRecipesNavHost(navController: NavHostController) {
@@ -32,52 +29,28 @@ fun KittyRecipesNavHost(navController: NavHostController) {
 
             HomeScreen(
                 navigateToRecipeTypeScreen = { recipeType ->
-
-                    navController.previousBackStackEntry?.savedStateHandle?.set(
-                        key = "recipeType",
-                        value = Gson().toJson(recipeType)
-                    )
-                    navController.navigate(Routes.RecipeType.name + "/$recipeType")
-
-//                    selectedRecipeType.value = recipeType.APIname
-//                    navController.navigate(Routes.RecipeType.name + "/${recipeType.APIname}")
+                    val encodedRecipeType = getEncodedJsonParam(recipeType)
+                    navController.navigate("${Routes.RecipeType.name}/$encodedRecipeType?recipeType=$encodedRecipeType")
                 }
             )
         }
 
         composable(
-            route = Routes.RecipeType.name + "/{recipeType}",
+            route = Routes.RecipeType.name + "/{recipeType}?recipeType={recipeType}",
             arguments = listOf(
                 navArgument("recipeType") {
                     type = NavType.StringType
-                },
+                }
             )
-        ) { backStackEntry ->
-
-            val jsonClient = backStackEntry.arguments?.getString("recipeType")
-            val recipeType = object : TypeToken<RecipeType>() {}.type
-            val recipe = Gson().fromJson<RecipeType>(jsonClient, recipeType)
+        ) { entry ->
+            val jsonClient = entry.arguments?.getString("recipeType")
+            val recipeTypeToken = object : TypeToken<RecipeType>() {}.type
+            val recipeType = Gson().fromJson<RecipeType>(jsonClient, recipeTypeToken)
 
             RecipeTypeScreen(
-                navigateToRecipeScreen = { recipe ->
-                    navController.previousBackStackEntry?.savedStateHandle?.set(
-                        key = "recipeType",
-                        value = Gson().toJson(recipe)
-                    )
-                    navController.navigate(Routes.Recipe.name + "/$recipe")
-
-                }, recipeType = recipe)
-
-
-//            val selectedRecipe = remember { mutableStateOf("") }
-//            val recipeType = backStackEntry.arguments?.getString("recipeType")
-//            RecipeTypeScreen(
-//                navigateToRecipeScreen = { recipe ->
-//                    selectedRecipe.value = recipe
-//                    navController.navigate(Routes.Recipe.name + "/$recipe")
-//                },
-//                recipeType = recipeType
-//            )
+                recipeType,
+                onBackClick = { navController.popBackStack() },
+            )
         }
 
         composable(Routes.Recipe.name + "/{recipe}") { backStackEntry ->
@@ -87,21 +60,6 @@ fun KittyRecipesNavHost(navController: NavHostController) {
     }
 
 }
-
-@Composable
-inline fun <reified T> NavHostController.getParam(
-    paramName: String,
-): T? {
-    val type = object : TypeToken<T>() {}.type
-    val json = getBackArg<String>(paramName)?.collectAsState()
-    return Gson().fromJson<T>(json?.value, type)
-}
-
-fun <T> NavHostController.getBackArg(
-    argKey: String
-) = currentBackStackEntry
-    ?.savedStateHandle
-    ?.getStateFlow<T?>(argKey, null)
 
 fun <T> getEncodedJsonParam(
     rawParam: T

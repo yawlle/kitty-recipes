@@ -2,6 +2,7 @@ package com.yawlle.kittyrecipes.domain.model
 
 import com.yawlle.kittyrecipes.R
 
+
 data class RecipeType(
     val name: String,
     val APIname: String,
