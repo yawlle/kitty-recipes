@@ -1,4 +1,4 @@
-#Kitty Recipes#
+# Kitty Recipes #
 Kitty Recipes é um aplicativo de receitas de comida para os amantes de gatos. O aplicativo apresenta uma variedade de receitas, porém com uma interface amigável para quem curte a temática de gatinhos. Esse aplicativo está consumindo a API do [Spoonacular](https://spoonacular.com/).
 
 Este projeto foi desenvolvido usando a linguagem de programação Kotlin e o padrão de arquitetura MVVM (Model-View-ViewModel). As bibliotecas utilizadas incluem:
