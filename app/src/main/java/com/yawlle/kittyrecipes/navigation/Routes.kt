@@ -1,4 +1,4 @@
-package com.yawlle.kittyrecipes.ui.navigation
+package com.yawlle.kittyrecipes.navigation
 
 enum class Routes(){
     Splash,
