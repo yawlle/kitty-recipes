@@ -30,9 +30,9 @@ Para executar o aplicativo, siga as instruções abaixo:
 ## Como contribuir ##
 Você pode contribuir com este projeto de várias maneiras:
 
-Relatando problemas: se você encontrar algum problema ou erro, abra uma issue no GitHub.
-Adicionando recursos: se você tiver alguma ideia para adicionar ao aplicativo, fique à vontade para criar um pull request.
-Corrigindo bugs: se você encontrar algum bug, crie um pull request com a solução.
+- Relatando problemas: se você encontrar algum problema ou erro, abra uma issue no GitHub.
+- Adicionando recursos: se você tiver alguma ideia para adicionar ao aplicativo, fique à vontade para criar um pull request.
+- Corrigindo bugs: se você encontrar algum bug, crie um pull request com a solução.
 
 ## Autor ##
 Este projeto foi desenvolvido por Isabella! Se você tiver alguma dúvida ou sugestão, sinta-se à vontade para entrar em contato.
