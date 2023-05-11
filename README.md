@@ -3,10 +3,10 @@ Kitty Recipes é um aplicativo de receitas de comida para os amantes de gatos. O
 
 Este projeto foi desenvolvido usando a linguagem de programação Kotlin e o padrão de arquitetura MVVM (Model-View-ViewModel). As bibliotecas utilizadas incluem:
 
-Jetpack Compose: para construção de UI e estados de telas.
-Retrofit: para as chamadas de API.
-Hilt: para injeção de dependências.
-Coil: para recarregamento de imagens.
+Jetpack Compose: para construção de UI e estados de telas. 
+Retrofit: para as chamadas de API. 
+Hilt: para injeção de dependências. 
+Coil: para recarregamento de imagens. 
 
 ## Requisitos do sistema ##
 Android 5.0 ou superior.
