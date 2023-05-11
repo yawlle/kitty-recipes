@@ -19,6 +19,7 @@ import com.yawlle.kittyrecipes.ui.component.home.CarouselRecipes
 import com.yawlle.kittyrecipes.ui.component.home.HorizontalCards
 import com.yawlle.kittyrecipes.ui.component.home.TitleIcon
 import com.yawlle.kittyrecipes.ui.component.home.TitleSection
+import com.yawlle.kittyrecipes.ui.presentation.shimmer.BoxShimmer
 import com.yawlle.kittyrecipes.ui.theme.PrimaryColor
 import com.yawlle.kittyrecipes.ui.theme.TertiaryColor
 
@@ -29,14 +30,15 @@ fun HomeScreen(
 ) {
 
     val list = vm.recipeState.collectAsState().value.items
+    val homeState = vm.recipeState.collectAsState().value
 
-    HomeScreen(list, navigateToRecipeTypeScreen)
+    HomeScreen(homeState, navigateToRecipeTypeScreen)
 }
 
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)
 private fun HomeScreen(
-    list: List<Recipe>,
+    homeState: HomeState,
     navigateToRecipeTypeScreen: (RecipeType) -> Unit
 ) {
     Scaffold(
@@ -72,12 +74,20 @@ private fun HomeScreen(
                     modifier = Modifier.padding(16.dp),
                     color = TertiaryColor
                 )
-                HorizontalCards(
-                    items = list,
-                    modifier = Modifier
-                        .height(120.dp)
-                        .fillMaxWidth()
-                )
+                if (homeState.isLoading) {
+                    BoxShimmer(
+                        modifier = Modifier
+                            .height(120.dp)
+                            .fillMaxWidth()
+                    )
+                } else {
+                    HorizontalCards(
+                        items = homeState.items,
+                        modifier = Modifier
+                            .height(120.dp)
+                            .fillMaxWidth()
+                    )
+                }
             }
         }
     )

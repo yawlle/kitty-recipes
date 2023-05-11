@@ -18,6 +18,7 @@ fun RecipeResponseItem.toRecipe() =
         veryPopular = veryPopular,
         image = image,
         instructions = instructions ?: "",
+        healthScore = healthScore
     )
 
 fun getRecipeType(recipeTypes: List<String>): List<RecipeType> {

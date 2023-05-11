@@ -7,3 +7,5 @@ val Pink80 = Color(0xFFEFB8C8)
 val PrimaryColor = Color(0xFFF5E9DB)
 val SecondaryColor = Color(0xFFEFBFB4)
 val TertiaryColor = Color(0xFF7D5260)
+
+val ShimmerColor = Color(0xFFccc6bf)
