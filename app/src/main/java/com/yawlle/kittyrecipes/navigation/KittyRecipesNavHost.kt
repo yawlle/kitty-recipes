@@ -1,4 +1,4 @@
-package com.yawlle.kittyrecipes.ui.navigation
+package com.yawlle.kittyrecipes.navigation
 
 import android.net.Uri
 import androidx.compose.runtime.Composable
@@ -50,12 +50,23 @@ fun KittyRecipesNavHost(navController: NavHostController) {
             RecipeTypeScreen(
                 recipeType,
                 onBackClick = { navController.popBackStack() },
+                navigateToRecipeScreen = { recipeId ->
+                    navController.navigate("${Routes.Recipe.name}/$recipeId?recipeId=$recipeId")
+                }
             )
         }
 
-        composable(Routes.Recipe.name + "/{recipe}") { backStackEntry ->
-            val recipe = backStackEntry.arguments?.getString("recipe")
-            RecipeScreen(recipe = recipe)
+        composable(
+            route = Routes.Recipe.name + "/{recipeId}",
+            arguments = listOf(
+                navArgument("recipeId") {
+                    type = NavType.StringType
+                }
+            )
+        )
+        { entry ->
+            val recipeId = entry.arguments?.getString("recipeId")
+            RecipeScreen(recipeId = recipeId)
         }
     }
 
