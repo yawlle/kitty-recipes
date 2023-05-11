@@ -38,6 +38,6 @@ Corrigindo bugs: se você encontrar algum bug, crie um pull request com a soluç
 Este projeto foi desenvolvido por Isabella! Se você tiver alguma dúvida ou sugestão, sinta-se à vontade para entrar em contato.
 
 ## Screenshots ##
-![Screenshot_20230511_163620](https://github.com/yawlle/kitty-recipes/assets/75861637/57711c54-8044-4f89-a99f-16255777856c)
-![Screenshot_20230511_163649](https://github.com/yawlle/kitty-recipes/assets/75861637/025a615b-4d72-4c17-b7f1-ae5487226770)
-![Screenshot_20230511_162950](https://github.com/yawlle/kitty-recipes/assets/75861637/0e11e744-3509-4fcb-9708-3dead75596ed)
+<img src="https://github.com/yawlle/kitty-recipes/assets/75861637/57711c54-8044-4f89-a99f-16255777856c" width="50%">
+<img src="https://github.com/yawlle/kitty-recipes/assets/75861637/025a615b-4d72-4c17-b7f1-ae5487226770" width="50%">
+<img src="https://github.com/yawlle/kitty-recipes/assets/75861637/0e11e744-3509-4fcb-9708-3dead75596ed" width="50%">
