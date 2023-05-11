@@ -1,4 +1,4 @@
-package com.yawlle.kittyrecipes.ui.component
+package com.yawlle.kittyrecipes.ui.component.home
 
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -13,26 +13,30 @@ import com.yawlle.kittyrecipes.ui.theme.PrimaryColor
 
 
 @Composable
-fun TopAppBar(title: String? = "", onBackClick: () -> Unit) {
+fun TopAppBarHome() {
 
     val context = LocalContext.current
 
-    val iconBack = painterResource(id = R.drawable.baseline_arrow_back)
+    val iconMenu = painterResource(id = R.drawable.ic_menu)
     val iconSearch = painterResource(id = R.drawable.ic_search)
+
+    val showMenu = remember {
+        mutableStateOf(false)
+    }
 
     CenterAlignedTopAppBar(
         title = {
             Text(
-                "$title",
+                "",
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
             )
         },
         navigationIcon = {
-            IconButton(onClick = { onBackClick() }) {
+            IconButton(onClick = { showMenu.value = true }) {
                 Icon(
-                    iconBack,
-                    contentDescription = "Voltar",
+                    iconMenu,
+                    contentDescription = "Menu",
                 )
             }
         },
@@ -50,3 +54,8 @@ fun TopAppBar(title: String? = "", onBackClick: () -> Unit) {
     )
 }
 
+@Composable
+@Preview
+fun TopAppBarHomeCompose() {
+    TopAppBarHome()
+}

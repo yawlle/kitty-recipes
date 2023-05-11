@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.navigation.compose.rememberNavController
-import com.yawlle.kittyrecipes.ui.navigation.KittyRecipesNavHost
+import com.yawlle.kittyrecipes.navigation.KittyRecipesNavHost
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

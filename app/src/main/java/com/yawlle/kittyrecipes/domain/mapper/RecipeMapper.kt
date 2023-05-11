@@ -1,7 +1,7 @@
 package com.yawlle.kittyrecipes.domain.mapper
 
 import com.yawlle.kittyrecipes.data.dto.RecipeResponseItem
-import com.yawlle.kittyrecipes.domain.model.DishType
+import com.yawlle.kittyrecipes.domain.model.RecipeType
 import com.yawlle.kittyrecipes.domain.model.Recipe
 
 fun RecipeResponseItem.toRecipe() =
@@ -10,7 +10,7 @@ fun RecipeResponseItem.toRecipe() =
         title = title,
         cheap = cheap,
         cookingMinutes = cookingMinutes,
-        dishTypes = getDishType(dishTypes ?: listOf()),
+        recipeTypes = getRecipeType(dishTypes ?: listOf()),
         preparationMinutes = preparationMinutes ?: 0,
         vegan = vegan,
         vegetarian = vegetarian,
@@ -18,10 +18,11 @@ fun RecipeResponseItem.toRecipe() =
         veryPopular = veryPopular,
         image = image,
         instructions = instructions ?: "",
+        healthScore = healthScore
     )
 
-fun getDishType(dishTypes: List<String>): List<DishType> {
-    return dishTypes.map {
+fun getRecipeType(recipeTypes: List<String>): List<RecipeType> {
+    return recipeTypes.map {
         val name = when (it) {
             "main course" -> "Prato Principal"
             "appetizer" -> "Entrada"
@@ -37,6 +38,22 @@ fun getDishType(dishTypes: List<String>): List<DishType> {
             "snack" -> "Lanche"
             else -> it
         }
-        DishType(name)
+        val APIname = when (it) {
+            "main course" -> "main_course"
+            "appetizer" -> "appetizer"
+            "dessert" -> "dessert"
+            "salad" -> "salad"
+            "bread" -> "bread"
+            "breakfast" -> "breakfast"
+            "soup" -> "soup"
+            "drink" -> "drink"
+            "sauce" -> "sauce"
+            "marinade" -> "marinade"
+            "fingerfood" -> "fingerfood"
+            "snack" -> "snack"
+            else -> it
+        }
+
+        RecipeType(name, APIname)
     }
 }

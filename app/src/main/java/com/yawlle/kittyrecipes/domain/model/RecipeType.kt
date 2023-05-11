@@ -2,50 +2,51 @@ package com.yawlle.kittyrecipes.domain.model
 
 import com.yawlle.kittyrecipes.R
 
-data class DishType(
+
+data class RecipeType(
     val name: String,
-    val APIname: String? = null,
+    val APIname: String,
     val image: Int? = null
 )
 
-val listDishTypes = listOf(
-    DishType(
+val listRecipeTypes = listOf(
+    RecipeType(
         "Prato principal", "main_course", R.drawable.main_course
     ),
-    DishType(
+    RecipeType(
         "Acompanhamento", "side_dish", R.drawable.side_dish
     ),
-    DishType(
+    RecipeType(
         "Sobremesa", "dessert", R.drawable.dessert
     ),
-    DishType(
+    RecipeType(
         "Entrada", "appetizer", R.drawable.appetizer
     ),
-    DishType(
+    RecipeType(
         "Salada", "salad", R.drawable.salad
     ),
-    DishType(
+    RecipeType(
         "Pão", "bread", R.drawable.bread
     ),
-    DishType(
+    RecipeType(
         "Café da manhã", "breakfast", R.drawable.breakfast
     ),
-    DishType(
+    RecipeType(
         "Sopa", "soup", R.drawable.soup
     ),
-    DishType(
+    RecipeType(
         "Molho", "sauce", R.drawable.sauce
     ),
-    DishType(
+    RecipeType(
         "Tempero", "marinade", R.drawable.marinade
     ),
-    DishType(
+    RecipeType(
         "Petisco", "food", R.drawable.finger_food
     ),
-    DishType(
+    RecipeType(
         "Lanche", "snack", R.drawable.snack
     ),
-    DishType(
+    RecipeType(
         "Bebida", "drink", R.drawable.drink
     )
 )
