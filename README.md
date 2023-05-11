@@ -12,8 +12,8 @@ Coil: para recarregamento de imagens.
 Android 5.0 ou superior.
 
 ## Funcionalidades ##
-Os usuários podem visualizar uma lista de receitas disponíveis por categoria.
-Os usuários podem visualizar os detalhes de uma receita, incluindo ingredientes e instruções.
+- Os usuários podem visualizar uma lista de receitas disponíveis por categoria.
+- Os usuários podem visualizar os detalhes de uma receita, incluindo ingredientes e instruções.
 
 ## No futuro ##
 Os usuários poderão pesquisar receitas por nome.
