@@ -39,7 +39,7 @@ Este projeto foi desenvolvido por Isabella! Se você tiver alguma dúvida ou sug
 
 ## Screenshots ##
 <div align="center">
-<img align="center" src="https://github.com/yawlle/kitty-recipes/assets/75861637/57711c54-8044-4f89-a99f-16255777856c" width="50%">
-<img align="center" src="https://github.com/yawlle/kitty-recipes/assets/75861637/025a615b-4d72-4c17-b7f1-ae5487226770" width="50%">
-<img align="center" src="https://github.com/yawlle/kitty-recipes/assets/75861637/0e11e744-3509-4fcb-9708-3dead75596ed" width="50%">
+<img align="center" src="https://github.com/yawlle/kitty-recipes/assets/75861637/57711c54-8044-4f89-a99f-16255777856c" width="20%">
+<img align="center" src="https://github.com/yawlle/kitty-recipes/assets/75861637/025a615b-4d72-4c17-b7f1-ae5487226770" width="20%">
+<img align="center" src="https://github.com/yawlle/kitty-recipes/assets/75861637/0e11e744-3509-4fcb-9708-3dead75596ed" width="20%">
   </div>
