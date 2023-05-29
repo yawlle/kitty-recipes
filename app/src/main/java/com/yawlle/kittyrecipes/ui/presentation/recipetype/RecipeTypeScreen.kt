@@ -23,13 +23,11 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
 import com.yawlle.kittyrecipes.domain.model.RecipeType
-import com.yawlle.kittyrecipes.domain.model.SearchRecipe
 import com.yawlle.kittyrecipes.ui.component.TopAppBar
-import com.yawlle.kittyrecipes.ui.presentation.ListImageTitleShimmer
+import com.yawlle.kittyrecipes.ui.presentation.shimmer.ListImageTitleShimmer
 import com.yawlle.kittyrecipes.ui.theme.PrimaryColor
 import com.yawlle.kittyrecipes.ui.theme.TertiaryColor
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RecipeTypeScreen(
     recipeType: RecipeType?,
@@ -44,85 +42,83 @@ fun RecipeTypeScreen(
 
     val listRecipe = vm.recipeState.collectAsState().value
 
-    Scaffold(topBar = {
-        TopAppBar(recipeType?.name, onBackClick)
-    }, content = {
-        Column(
-            Modifier
-                .padding(it)
-                .background(color = PrimaryColor)
-                .fillMaxHeight()
-        ) {
-            if (listRecipe.isLoading) {
-                ListImageTitleShimmer(
-                    modifier = Modifier.background(
-                        color = PrimaryColor
-                    )
-                )
-            } else {
-                ListRecipeScreen(
-                    listRecipe.items,
-                    modifier = Modifier.background(
-                        color = PrimaryColor
-                    ),
-                    navigateToRecipeScreen = navigateToRecipeScreen
-                )
-            }
-
-        }
-    }
-
+    ListRecipeScreen(
+        recipeType,
+        listRecipe,
+        navigateToRecipeScreen,
+        onBackClick,
+        modifier = Modifier.background(
+            color = PrimaryColor
+        )
     )
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun ListRecipeScreen(
-    list: List<SearchRecipe>,
-    modifier: Modifier,
-    navigateToRecipeScreen: (recipeId: Int) -> Unit
+    recipeType: RecipeType?,
+    listRecipeState: RecipeTypeState,
+    navigateToRecipeScreen: (recipeId: Int) -> Unit,
+    onBackClick: () -> Unit,
+    modifier: Modifier
 ) {
-    LazyColumn(
-        modifier = modifier.padding(16.dp),
-        contentPadding = PaddingValues(horizontal = 3.dp),
-        verticalArrangement = Arrangement.spacedBy(20.dp)
-    ) {
-        itemsIndexed(list) { index, item ->
-            Card(modifier = modifier
-                .clip(RoundedCornerShape(8.dp))
-                .fillMaxWidth()
+    Scaffold(topBar = {
+        TopAppBar(recipeType?.name, onBackClick)
+    }, content = {
+        Column(
+            modifier
+                .padding(it)
+                .background(color = PrimaryColor)
                 .fillMaxHeight()
-                .clickable {
-                    navigateToRecipeScreen(item.id)
-                }) {
-                Row(
-                    modifier = modifier.fillMaxWidth()
+        ) {
+            if (listRecipeState.isLoading) {
+                ListImageTitleShimmer(
+                    modifier = modifier
+                )
+            } else {
+                LazyColumn(
+                    modifier = modifier.padding(16.dp),
+                    contentPadding = PaddingValues(horizontal = 3.dp),
+                    verticalArrangement = Arrangement.spacedBy(20.dp)
                 ) {
-                    AsyncImage(
-                        model = item.image,
-                        contentDescription = "Image Recipe",
-                        contentScale = ContentScale.Crop,
-                        modifier = modifier
+                    itemsIndexed(listRecipeState.items) { index, item ->
+                        Card(modifier = modifier
                             .clip(RoundedCornerShape(8.dp))
-                            .size(100.dp)
-                            .drawWithContent {
-                                drawContent()
-                            },
-                    )
-                    Text(
-                        text = item.title,
-                        fontSize = 21.sp,
-                        color = TertiaryColor,
-                        maxLines = 2,
-                        overflow = TextOverflow.Clip,
-                        modifier = Modifier.padding(start = 8.dp)
-                    )
+                            .fillMaxWidth()
+                            .background(color = PrimaryColor)
+                            .fillMaxHeight()
+                            .clickable {
+                                navigateToRecipeScreen(item.id)
+                            }) {
+                            Row(
+                                modifier = modifier.fillMaxWidth()
+                            ) {
+                                AsyncImage(
+                                    model = item.image,
+                                    contentDescription = "Image Recipe",
+                                    contentScale = ContentScale.Crop,
+                                    modifier = modifier
+                                        .clip(RoundedCornerShape(8.dp))
+                                        .size(100.dp)
+                                        .drawWithContent {
+                                            drawContent()
+                                        },
+                                )
+                                Text(
+                                    text = item.title,
+                                    fontSize = 21.sp,
+                                    color = TertiaryColor,
+                                    maxLines = 2,
+                                    overflow = TextOverflow.Clip,
+                                    modifier = modifier.padding(start = 8.dp)
+                                )
+                            }
+                        }
+                    }
                 }
             }
-
-
         }
-    }
+    })
 }
 
 
