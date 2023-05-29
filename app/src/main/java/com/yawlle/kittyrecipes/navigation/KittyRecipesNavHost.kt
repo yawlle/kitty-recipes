@@ -31,6 +31,9 @@ fun KittyRecipesNavHost(navController: NavHostController) {
                 navigateToRecipeTypeScreen = { recipeType ->
                     val encodedRecipeType = getEncodedJsonParam(recipeType)
                     navController.navigate("${Routes.RecipeType.name}/$encodedRecipeType?recipeType=$encodedRecipeType")
+                },
+                navigateToRecipeScreen = { recipeId ->
+                    navController.navigate("${Routes.Recipe.name}/$recipeId?recipeId=$recipeId")
                 }
             )
         }
@@ -66,7 +69,7 @@ fun KittyRecipesNavHost(navController: NavHostController) {
         )
         { entry ->
             val recipeId = entry.arguments?.getString("recipeId")
-            RecipeScreen(recipeId = recipeId)
+            RecipeScreen(recipeId = recipeId, onBackClick = { navController.popBackStack() })
         }
     }
 

@@ -22,11 +22,7 @@ class HomeViewModel @Inject constructor(
     private val _recipeState = MutableStateFlow(HomeState())
     val recipeState: StateFlow<HomeState> = _recipeState.asStateFlow()
 
-    init {
-        getRandomRecipe(getRandomDishTypes(listRecipeTypes).APIname)
-    }
-
-    private fun getRandomRecipe(dishType: String) {
+   fun getRandomRecipe(dishType: String) {
         viewModelScope.launch {
             try {
                 getRandomRecipeUseCase(COUNT_CAROUSEL, dishType).let { recipes ->
