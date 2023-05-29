@@ -36,6 +36,7 @@ fun getRecipeType(recipeTypes: List<String>): List<RecipeType> {
             "marinade" -> "Tempero"
             "fingerfood" -> "Petisco"
             "snack" -> "Lanche"
+            "lunch" -> "Almoço"
             else -> it
         }
         val APIname = when (it) {
@@ -51,6 +52,7 @@ fun getRecipeType(recipeTypes: List<String>): List<RecipeType> {
             "marinade" -> "marinade"
             "fingerfood" -> "fingerfood"
             "snack" -> "snack"
+            "main dish" -> "main_dish"
             else -> it
         }
 
