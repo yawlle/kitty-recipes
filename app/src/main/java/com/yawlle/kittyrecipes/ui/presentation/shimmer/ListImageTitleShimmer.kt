@@ -1,4 +1,4 @@
-package com.yawlle.kittyrecipes.ui.presentation
+package com.yawlle.kittyrecipes.ui.presentation.shimmer
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -16,7 +16,6 @@ import androidx.compose.ui.unit.sp
 import com.google.accompanist.placeholder.PlaceholderHighlight
 import com.google.accompanist.placeholder.fade
 import com.google.accompanist.placeholder.placeholder
-import com.google.accompanist.placeholder.shimmer
 import com.yawlle.kittyrecipes.ui.theme.ShimmerColor
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -47,7 +46,7 @@ fun ListImageTitleShimmer(
                                 visible = true,
                                 color = ShimmerColor,
                                 highlight = PlaceholderHighlight.fade(
-                                    highlightColor = Color.White
+                                    highlightColor = Color.Gray
                                 )
                             )
                     )
@@ -62,7 +61,7 @@ fun ListImageTitleShimmer(
                                 visible = true,
                                 color = ShimmerColor,
                                 highlight = PlaceholderHighlight.fade(
-                                    highlightColor = Color.White,
+                                    highlightColor = Color.Gray,
                                 ),
                             )
                     )
