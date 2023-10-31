@@ -1,41 +1,41 @@
 # Kitty Recipes #
-Kitty Recipes é um aplicativo de receitas de comida para os amantes de gatos. O aplicativo apresenta uma variedade de receitas, porém com uma interface amigável para quem curte a temática de gatinhos. Esse aplicativo está consumindo a API do [Spoonacular](https://spoonacular.com/).
+Kitty Recipes is a food recipe app for cat lovers. The app features a variety of recipes but with a cat-themed, user-friendly interface. This app consumes the [Spoonacular](https://spoonacular.com/).
 
-Este projeto foi desenvolvido usando a linguagem de programação Kotlin e o padrão de arquitetura MVVM (Model-View-ViewModel). As bibliotecas utilizadas incluem:
+This project was developed using the Kotlin programming language and the MVVM (Model-View-ViewModel) architecture pattern. The libraries used include:
 
-- Jetpack Compose: para construção de UI e estados de telas. 
-- Retrofit: para as chamadas de API. 
-- Hilt: para injeção de dependências. 
-- Coil: para recarregamento de imagens. 
+- Jetpack Compose: for UI construction and screen states.
+- Retrofit: for API calls.
+- Hilt: for dependency injection.
+- Coil: for image loading.
 
-## Requisitos do sistema ##
-Android 5.0 ou superior.
+## System Requirements ##
+Android 5.0 ou higher.
 
-## Funcionalidades ##
-- Os usuários podem visualizar uma lista de receitas disponíveis por categoria.
-- Os usuários podem visualizar os detalhes de uma receita, incluindo ingredientes e instruções.
+## Features ##
+- Users can view a list of recipes available by category.
+- Users can view the details of a recipe, including ingredients and instructions.
 
-## No futuro ##
-- Os usuários poderão pesquisar receitas por nome.
-- Os usuários poderão adicionar receitas aos seus favoritos para acesso rápido.
-- Os usuários terão traduções para o português.
+## In the Future ##
+- Users will be able to search for recipes by name.
+- Users can add recipes to their favorites for quick access.
+- Users will have translations to Portuguese.
 
-## Configuração do projeto ##
-Para executar o aplicativo, siga as instruções abaixo:
+## Project Setup ##
+To run the app, follow the instructions below:
 
-1. Clone o repositório para o seu computador.
-2. Abra o projeto no Android Studio.
-3. Execute o aplicativo em um dispositivo Android ou em um emulador.
+1. Clone the repository to your computer.
+2. Open the project in Android Studio.
+3. Run the app on an Android device or emulator.
 
-## Como contribuir ##
-Você pode contribuir com este projeto de várias maneiras:
+## How to Contribute ##
+You can contribute to this project in various ways:
 
-- Relatando problemas: se você encontrar algum problema ou erro, abra uma issue no GitHub.
-- Adicionando recursos: se você tiver alguma ideia para adicionar ao aplicativo, fique à vontade para criar um pull request.
-- Corrigindo bugs: se você encontrar algum bug, crie um pull request com a solução.
+- Reporting issues: If you encounter any problems or errors, open an issue on GitHub.
+- Adding features: If you have ideas to enhance the app, feel free to create a pull request.
+- Fixing bugs: If you find any bugs, create a pull request with the solution.
 
-## Autor ##
-Este projeto foi desenvolvido por Isabella! Se você tiver alguma dúvida ou sugestão, sinta-se à vontade para entrar em contato.
+## Author ##
+This project was developed by Isabella! If you have any questions or suggestions, feel free to get in touch.
 
 ## Screenshots ##
 <div align="center">
