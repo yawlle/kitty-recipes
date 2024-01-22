@@ -7,6 +7,7 @@ This project was developed using the Kotlin programming language and the MVVM (M
 - Retrofit: for API calls.
 - Hilt: for dependency injection.
 - Coil: for image loading.
+- LottieCompose: for animations in splash and loading.
 
 ## System Requirements ##
 Android 5.0 ou higher.

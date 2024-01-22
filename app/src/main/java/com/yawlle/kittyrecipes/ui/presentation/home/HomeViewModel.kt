@@ -6,12 +6,14 @@ import androidx.lifecycle.viewModelScope
 import com.yawlle.kittyrecipes.domain.model.listRecipeTypes
 import com.yawlle.kittyrecipes.domain.use_cases.GetRandomRecipeUseCase
 import com.yawlle.kittyrecipes.ui.presentation.Constants.COUNT_CAROUSEL
+import com.yawlle.kittyrecipes.ui.presentation.errorMessage
 import com.yawlle.kittyrecipes.ui.presentation.getRandomDishTypes
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import retrofit2.HttpException
 import javax.inject.Inject
 
 @HiltViewModel
@@ -19,31 +21,24 @@ class HomeViewModel @Inject constructor(
     private val getRandomRecipeUseCase: GetRandomRecipeUseCase
 ) : ViewModel(), DefaultLifecycleObserver {
 
-    private val _recipeState = MutableStateFlow(HomeState())
-    val recipeState: StateFlow<HomeState> = _recipeState.asStateFlow()
+    val uiState = HomeUiState()
 
     init {
         getRandomRecipe(getRandomDishTypes(listRecipeTypes).APIname)
     }
 
     private fun getRandomRecipe(dishType: String) {
+        uiState.showLoading()
         viewModelScope.launch {
             try {
                 getRandomRecipeUseCase(COUNT_CAROUSEL, dishType).let { recipes ->
-                    _recipeState.value = HomeState(
-                        isLoading = false,
-                        items = recipes,
-                        errorMessage = null
-                    )
+                    uiState.showContent(recipes)
                 }
             } catch (e: Exception) {
-                _recipeState.value = HomeState(
-                    isLoading = false,
-                    items = emptyList(),
-                    errorMessage = e.localizedMessage
-                )
+                uiState.showError()
+            } catch (e: HttpException) {
+                uiState.showError(e.errorMessage())
             }
         }
-
     }
 }

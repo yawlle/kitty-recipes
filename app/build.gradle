@@ -81,6 +81,12 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.2'
     implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
 
+    def lottieVersion = "3.4.0"
+    def lottieComposeVersion = "4.0.0"
+
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+    implementation "com.airbnb.android:lottie-compose:$lottieComposeVersion"
+
     implementation 'io.coil-kt:coil-compose:2.3.0'
 
     implementation "com.google.accompanist:accompanist-placeholder-material:0.25.1"
