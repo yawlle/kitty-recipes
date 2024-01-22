@@ -2,4 +2,15 @@
     <string name="app_name">kittyrecipes</string>
     <string name="title_activity_splash">SplashActivity</string>
     <string name="title_activity_mai2n">Mai2nActivity</string>
+
+    <!-- Home Screen -->
+    <string name="home_title">Seja Bem Vindo!</string>
+    <string name="home_section_title">Hora de testar novos sabores.</string>
+    <string name="section_title">Faça uma surpresa…</string>
+
+    <!-- Error Screen -->
+    <string name="error_title">Ops!</string>
+    <string name="error_subtitle">Tivemos um probleminha.\n Volte depois!</string>
+
+
 </resources>
